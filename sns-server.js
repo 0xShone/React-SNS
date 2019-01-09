@@ -124,6 +124,7 @@ app.get('/api/get_friends_timeline', (req, res) => {
 
 // Routing
 app.use('/public', express.static('./public'))
+app.use('/signin', express.static('./public'))
 app.use('/login', express.static('./public'))
 app.use('/users', express.static('./public'))
 app.use('/timeline', express.static('./public'))

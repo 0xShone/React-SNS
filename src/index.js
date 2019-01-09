@@ -6,7 +6,9 @@ import {
 } from 'react-router-dom'
 import SNSUsers from './sns_users'
 import SNSTimeline from './sns_timeline'
+import SNSSignin from './sns_signin'
 import SNSLogin from './sns_login'
+
 
 const SNSApp = () => (
     <Router>
@@ -14,6 +16,7 @@ const SNSApp = () => (
             <Switch>
                 <Route path='/users' component={SNSUsers} />
                 <Route path='/timeline' component={SNSTimeline} />
+                <Route path='/signin' component={SNSSignin} />
                 <Route path='/login' component={SNSLogin} />
                 <Route component={SNSLogin} />
             </Switch>

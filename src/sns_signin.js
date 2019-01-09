@@ -3,8 +3,8 @@ import request from 'superagent'
 import {Redirect} from 'react-router-dom'
 import styles from './styles'
 
-// Login page //
-export default class SNSLogin extends Component {
+// Signin page //
+export default class SNSSignin extends Component {
     constructor (props) {
         super(props)
         this.state = { userid: '', passwd: '', jump: '', msg: '' }
@@ -38,16 +38,17 @@ export default class SNSLogin extends Component {
         const changed = (name, e) => this.setState({[name]: e.target.value})
         return (
             <div>
-                <h1>ログイン</h1>
+                <h1>新規ユーザ登録</h1>
                 <div style={styles.login}>
+                    ※ 初めての方はユーザIDとパスワードを入力して下記のボタンを押してください<br />
                     [ユーザID]<br />
                     <input value={this.state.userid} onChange={e => changed('userid', e)} /><br />
                     [パスワード]<br />
                     <input type='password' value={this.state.passwd} onChange={e => changed('passwd', e)} /><br />
-                    <button onClick={e => this.api('login')}>ログイン</button><br />
                     <p style={styles.error}>{this.state.msg}</p>
-                    ※ 初めての方はユーザ登録を行ってください<br />
-                    <p><a href={'/signin'}>→ユーザ登録</a></p>
+                    <p><button onClick={e => this.api('adduser')}>ユーザ登録</button></p>
+                    ※ 既にアカウントをお持ちの方はログインへ<br />
+                    <p><a href={'/login'}>→ログイン</a></p>
                 </div>
             </div>
         )
